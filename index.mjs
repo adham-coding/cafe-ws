@@ -26,7 +26,7 @@ io.on("connection", (socket) => {
         error: "Screen name and password required!",
       });
 
-    if (password !== (process.env.PASSWORD || "123"))
+    if (password !== (process.env.PASSWORD ?? "123"))
       return socket.emit("screen", { error: "Password incorrect!" });
 
     if (screens.hasOwnProperty(screen))
@@ -60,7 +60,7 @@ app.post("/", async (request, response) => {
       request.method !== "POST" ||
       !screen ||
       !password ||
-      password !== (process.env.PASSWORD || "123") ||
+      password !== (process.env.PASSWORD ?? "123") ||
       !Array.isArray(purchases) // ||
       // !origin.includes(request.headers.origin) ||
       // !origin.includes(request.headers.referer.slice(0, -1))
@@ -85,7 +85,7 @@ app.post("/clear", async (request, response) => {
       request.method !== "POST" ||
       !screen ||
       !password ||
-      password !== (process.env.PASSWORD || "123") // ||
+      password !== (process.env.PASSWORD ?? "123") // ||
       // !origin.includes(request.headers.origin) ||
       // !origin.includes(request.headers.referer.slice(0, -1))
     )
@@ -108,7 +108,7 @@ app.post("/screens", async (request, response) => {
     if (
       request.method !== "POST" ||
       !password ||
-      password !== (process.env.PASSWORD || "123") // ||
+      password !== (process.env.PASSWORD ?? "123") // ||
       // !origin.includes(request.headers.origin) ||
       // !origin.includes(request.headers.referer.slice(0, -1))
     )
@@ -124,6 +124,6 @@ app.post("/screens", async (request, response) => {
   }
 });
 
-server.listen(process.env.PORT || 8000, () => {
+server.listen(process.env.PORT ?? 8000, () => {
   console.log("SERVER :", server.address().port);
 });
