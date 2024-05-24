@@ -5,14 +5,14 @@ import cors from "cors";
 
 const app = express();
 const server = createServer(app);
-const origin = ["localhost"];
+const origin = ["*"];
 const screens = {};
 
 app.use(express.json());
 app.use(cors({ origin, optionsSuccessStatus: 200 }));
 
 const io = new Server(server, {
-  cors: { origin: ["localhost"], methosd: ["GET", "POST"] },
+  cors: { origin, methosd: ["GET", "POST"] },
 });
 
 io.on("connection", (socket) => {
