@@ -60,7 +60,7 @@ app.post("/", async (request, response) => {
       request.method !== "POST" ||
       !screen ||
       !password ||
-      !password !== (process.env.PASSWORD || "123") ||
+      password !== (process.env.PASSWORD || "123") ||
       !Array.isArray(purchases) // ||
       // !origin.includes(request.headers.origin) ||
       // !origin.includes(request.headers.referer.slice(0, -1))
@@ -85,7 +85,7 @@ app.post("/clear", async (request, response) => {
       request.method !== "POST" ||
       !screen ||
       !password ||
-      !password !== (process.env.PASSWORD || "123") // ||
+      password !== (process.env.PASSWORD || "123") // ||
       // !origin.includes(request.headers.origin) ||
       // !origin.includes(request.headers.referer.slice(0, -1))
     )
@@ -108,11 +108,11 @@ app.post("/screens", async (request, response) => {
     if (
       request.method !== "POST" ||
       !password ||
-      !password !== (process.env.PASSWORD || "123") // ||
+      password !== (process.env.PASSWORD || "123") // ||
       // !origin.includes(request.headers.origin) ||
       // !origin.includes(request.headers.referer.slice(0, -1))
     )
-      return response.status(403).json(`🔴 FORBIDDEN! ${request.method} ${process.env.PASSWORD}`);
+      return response.status(403).json("🔴 FORBIDDEN!");
 
     screens[screen].emit("purchases", purchases);
 
