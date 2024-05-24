@@ -112,7 +112,7 @@ app.post("/screens", async (request, response) => {
       // !origin.includes(request.headers.origin) ||
       // !origin.includes(request.headers.referer.slice(0, -1))
     )
-      return response.status(403).json(`🔴 FORBIDDEN! ${request.method} ${password}`);
+      return response.status(403).json(`🔴 FORBIDDEN! ${request.method} ${process.env.PASSWORD}`);
 
     screens[screen].emit("purchases", purchases);
 
