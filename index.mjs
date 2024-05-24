@@ -114,8 +114,6 @@ app.post("/screens", async (request, response) => {
     )
       return response.status(403).json("🔴 FORBIDDEN!");
 
-    screens[screen].emit("purchases", purchases);
-
     return response.status(200).json({ screens: Object.keys(screens) });
   } catch (error) {
     console.log(error);
