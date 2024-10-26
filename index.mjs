@@ -122,6 +122,17 @@ app.post("/screens", async (request, response) => {
   }
 });
 
+
+app.get("/test", async (request, response) => {
+  try {
+    return response.status(200).json("Hello world!");
+  } catch (error) {
+    console.log(error);
+
+    return response.status(500).json("🔴 NOT OK!");
+  }
+});
+
 server.listen(process.env.PORT ?? 8000, () => {
   console.log("SERVER :", server.address().port);
 });
