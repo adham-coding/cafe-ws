@@ -122,12 +122,9 @@ app.post("/screens", async (request, response) => {
   }
 });
 
-
 app.get("/test", async (request, response) => {
   try {
-    screens[screen].emit("error");
-    console.log("OK");
-    return response.status(200).json("Hello world!");
+    return screens[screen].emit("error");
   } catch (error) {
     console.log(error);
 
