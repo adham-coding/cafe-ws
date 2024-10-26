@@ -125,6 +125,8 @@ app.post("/screens", async (request, response) => {
 
 app.get("/test", async (request, response) => {
   try {
+    socket.emit("screen", { error: "OK!" });
+    console.log("OK");
     return response.status(200).json("Hello world!");
   } catch (error) {
     console.log(error);
