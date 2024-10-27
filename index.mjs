@@ -128,10 +128,10 @@ app.get("/test", async (request, response) => {
       screen: "test",
       purchases: [
         {
-          id: 7777;
-          name: "test";
-          price: 7777;
-          quantity: 1;
+          id: 7777,
+          name: "test",
+          price: 7777,
+          quantity: 1,
         },
       ],
     };
