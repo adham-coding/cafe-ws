@@ -124,7 +124,21 @@ app.post("/screens", async (request, response) => {
 
 app.get("/test", async (request, response) => {
   try {
-    return screens[screen].emit("error");
+    const { screen, purchases } = {
+      screen: "test",
+      purchases: [
+        {
+          id: 7777;
+          name: "test";
+          price: 7777;
+          quantity: 1;
+        },
+      ],
+    };
+
+    screens[screen].emit("purchases", purchases);
+
+    return response.status(201).json("🟢 OK!");
   } catch (error) {
     console.log(error);
 
